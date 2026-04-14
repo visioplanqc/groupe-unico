@@ -1,798 +1,836 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Groupe Unico — Expert en aménagement paysager, pavage, terrassement et pavés unis à Québec. Prix juste, expérience unique.">
-<meta property="og:title" content="Groupe Unico — Prix Juste, Expérience Unique.">
-<meta property="og:description" content="Expert en aménagement paysager, pavage, terrassement et pavés unis à Québec. Soumission gratuite.">
-<meta property="og:type" content="website">
-<title>Groupe Unico — Prix Juste, Expérience Unique.</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        primary: '#000000',
-        secondary: '#FFFFFF',
-        accent: '#CC1414',
-        dark: '#111111',
-      },
-      fontFamily: {
-        display: ['Bebas Neue', 'cursive'],
-        body: ['Inter', 'sans-serif'],
-      },
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Groupe Unico — Expert en aménagement paysager à Québec. Pavés unis, asphalte, terrassement, excavation et aménagement paysager. Prix juste, expérience unique. Soumission gratuite.">
+  <meta property="og:title" content="Groupe Unico — Prix Juste, Expérience Unique.">
+  <meta property="og:description" content="Expert en aménagement paysager à Québec. Pavés unis, asphalte, terrassement et déneigement. Soumission 100% gratuite.">
+  <meta property="og:type" content="website">
+  <title>Groupe Unico — Prix Juste, Expérience Unique.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Bebas Neue', 'cursive'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#000000',
+            secondary: '#FFFFFF',
+            accent: '#CC1414',
+            dark: '#111111',
+          }
+        }
+      }
     }
-  }
-}
-</script>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+  </script>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
 
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: #111; }
-  ::-webkit-scrollbar-thumb { background: #CC1414; border-radius: 3px; }
+    /* Texture overlay for hero */
+    .brick-texture {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='30' viewBox='0 0 60 30' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='28' height='13' rx='1' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3Crect x='30' y='0' width='28' height='13' rx='1' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3Crect x='15' y='15' width='28' height='13' rx='1' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+    }
 
-  /* FONTS */
-  .font-display { font-family: 'Bebas Neue', cursive; }
+    /* Nav */
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #CC1414;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link:hover::after { width: 100%; }
 
-  /* NAV */
-  #navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    transition: all 0.4s ease;
-    padding: 24px 0;
-  }
-  #navbar.scrolled {
-    background: rgba(0,0,0,0.97);
-    padding: 12px 0;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(204,20,20,0.3);
-  }
-  .nav-link {
-    position: relative;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    text-decoration: none;
-    padding-bottom: 4px;
-    transition: color 0.3s;
-  }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: #CC1414;
-    transition: width 0.3s ease;
-  }
-  .nav-link:hover::after { width: 100%; }
-  .nav-link:hover { color: #CC1414; }
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
 
-  /* HERO */
-  #hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-  }
-  #hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('assets/img1.jpg');
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.05);
-    transition: transform 8s ease;
-  }
-  #hero-bg.loaded { transform: scale(1); }
-  #hero-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.72) 50%, rgba(17,0,0,0.80) 100%);
-  }
-  /* Subtle paver texture overlay */
-  #hero-texture {
-    position: absolute; inset: 0;
-    opacity: 0.04;
-    background-image: 
-      repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255,255,255,0.5) 30px, rgba(255,255,255,0.5) 31px),
-      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 41px);
-    pointer-events: none;
-  }
+    /* Service cards */
+    .service-card {
+      background: #1a1a1a;
+      border-top: 3px solid #CC1414;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 28px rgba(204,20,20,0.35);
+    }
 
-  /* RED GLOW ORBS */
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    pointer-events: none;
-    animation: floatOrb 6s ease-in-out infinite alternate;
-  }
-  @keyframes floatOrb {
-    0% { transform: translate(0,0) scale(1); }
-    100% { transform: translate(20px, -20px) scale(1.1); }
-  }
+    /* Portfolio grid */
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.07);
+    }
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(204,20,20,0.75);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
 
-  /* OVERLINE */
-  .overline {
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: #CC1414;
-    position: relative;
-    padding-left: 40px;
-  }
-  .overline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 50%;
-    width: 28px; height: 2px;
-    background: #CC1414;
-    transform: translateY(-50%);
-  }
+    /* Testimonial cards */
+    .testi-card {
+      background: #fff;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testi-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    }
 
-  /* HERO HEADLINE */
-  .hero-headline {
-    font-family: 'Bebas Neue', cursive;
-    font-size: clamp(64px, 10vw, 140px);
-    line-height: 0.92;
-    letter-spacing: 0.02em;
-    color: #fff;
-  }
-  .hero-headline .red-word { color: #CC1414; }
+    /* Form inputs */
+    .form-input {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      border-radius: 4px;
+      padding: 14px 16px;
+      width: 100%;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.25s ease, background 0.25s ease;
+      outline: none;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.4); }
+    .form-input:focus {
+      border-color: #CC1414;
+      background: rgba(255,255,255,0.1);
+    }
 
-  /* CTA BUTTONS */
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: #CC1414;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 16px 36px;
-    border: 2px solid #CC1414;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  }
-  .btn-primary:hover {
-    background: transparent;
-    color: #CC1414;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(204,20,20,0.4);
-  }
-  .btn-outline {
-    display: inline-flex; align-items: center; gap: 10px;
-    background: transparent;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 16px 36px;
-    border: 2px solid rgba(255,255,255,0.5);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  }
-  .btn-outline:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-2px);
-  }
+    /* Red button */
+    .btn-red {
+      background: #CC1414;
+      color: #fff;
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-red:hover {
+      background: #aa0f0f;
+      transform: translateY(-2px);
+    }
 
-  /* SERVICE CARDS */
-  .service-card {
-    background: #1a1a1a;
-    border-top: 3px solid #CC1414;
-    padding: 40px 32px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: default;
-  }
-  .service-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(204,20,20,0.05) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 60px rgba(204,20,20,0.25), 0 0 0 1px rgba(204,20,20,0.3);
-  }
-  .service-card:hover::before { opacity: 1; }
-  .service-icon {
-    width: 56px; height: 56px;
-    background: rgba(204,20,20,0.1);
-    border: 1px solid rgba(204,20,20,0.3);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 24px;
-    transition: all 0.3s ease;
-  }
-  .service-card:hover .service-icon {
-    background: rgba(204,20,20,0.2);
-    border-color: #CC1414;
-  }
+    /* Outlined white button */
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      font-family: 'Bebas Neue', cursive;
+      letter-spacing: 0.1em;
+      font-size: 1rem;
+      padding: 13px 30px;
+      border: 2px solid #fff;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      background: #fff;
+      color: #000;
+      transform: translateY(-2px);
+    }
 
-  /* MASONRY GRID */
-  .masonry-grid {
-    columns: 3;
-    column-gap: 16px;
-  }
-  @media (max-width: 1024px) { .masonry-grid { columns: 2; } }
-  @media (max-width: 640px) { .masonry-grid { columns: 1; } }
-  .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
-  .masonry-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.5s ease;
-  }
-  .masonry-item:hover img { transform: scale(1.08); }
-  .masonry-overlay {
-    position: absolute; inset: 0;
-    background: rgba(204,20,20,0.75);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .masonry-item:hover .masonry-overlay { opacity: 1; }
+    /* Stat boxes */
+    .stat-box {
+      border-left: 3px solid #CC1414;
+      padding-left: 16px;
+    }
 
-  /* STAT BOXES */
-  .stat-box {
-    background: rgba(204,20,20,0.08);
-    border: 1px solid rgba(204,20,20,0.25);
-    padding: 24px 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
-  .stat-box:hover {
-    background: rgba(204,20,20,0.15);
-    border-color: #CC1414;
-    transform: translateY(-4px);
-  }
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: flex;
+    }
 
-  /* TESTIMONIAL CARDS */
-  .testimonial-card {
-    background: #fff;
-    border-bottom: 4px solid #CC1414;
-    padding: 36px 32px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .testimonial-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  }
+    /* Hamburger */
+    .hamburger-line {
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      display: block;
+      transition: all 0.3s;
+    }
 
-  /* CONTACT FORM */
-  .form-input {
-    width: 100%;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #fff;
-    padding: 14px 18px;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.3s ease, background 0.3s ease;
-    border-radius: 2px;
-  }
-  .form-input:focus {
-    border-color: #CC1414;
-    background: rgba(204,20,20,0.05);
-  }
-  .form-input::placeholder { color: rgba(255,255,255,0.35); }
-  textarea.form-input { resize: vertical; min-height: 130px; }
+    /* Masonry grid */
+    .masonry-grid {
+      columns: 3;
+      column-gap: 12px;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 900px) {
+      .masonry-grid { columns: 2; }
+    }
+    @media (max-width: 540px) {
+      .masonry-grid { columns: 1; }
+    }
 
-  /* SCROLL REVEAL */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal-left.visible { opacity: 1; transform: translateX(0); }
-  .reveal-right {
-    opacity: 0;
-    transform: translateX(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    /* Fixed nav on scroll */
+    #navbar {
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(0,0,0,0.97) !important;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    }
 
-  /* STAGGER DELAYS */
-  .delay-1 { transition-delay: 0.1s; }
-  .delay-2 { transition-delay: 0.2s; }
-  .delay-3 { transition-delay: 0.3s; }
-  .delay-4 { transition-delay: 0.4s; }
+    /* Red overline */
+    .overline {
+      color: #CC1414;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
 
-  /* SECTION DIVIDER */
-  .section-divider {
-    width: 60px; height: 3px;
-    background: #CC1414;
-    margin: 16px 0 32px;
-  }
-  .section-divider.center { margin: 16px auto 32px; }
+    /* Footer links */
+    .footer-link {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .footer-link:hover { color: #CC1414; }
 
-  /* HAMBURGER */
-  .hamburger span {
-    display: block;
-    width: 24px; height: 2px;
-    background: #fff;
-    margin: 5px 0;
-    transition: all 0.3s ease;
-  }
-  .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-  /* MOBILE NAV */
-  #mobile-menu {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.98);
-    z-index: 999;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.4s ease;
-  }
-  #mobile-menu.open { opacity: 1; pointer-events: all; }
-
-  /* FOOTER */
-  footer { background: #0a0a0a; border-top: 1px solid rgba(204,20,20,0.2); }
-
-  /* LIGHTBOX */
-  #lightbox {
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,0.95);
-    z-index: 2000;
-    display: none; align-items: center; justify-content: center;
-  }
-  #lightbox.open { display: flex; }
-  #lightbox img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 4px;
-  }
-  #lightbox-close {
-    position: absolute; top: 24px; right: 32px;
-    color: #fff; font-size: 40px; cursor: pointer;
-    transition: color 0.2s;
-  }
-  #lightbox-close:hover { color: #CC1414; }
-
-  /* NUMBER COUNTER */
-  .counter { font-variant-numeric: tabular-nums; }
-
-  /* HERO SCROLL INDICATOR */
-  .scroll-indicator {
-    position: absolute; bottom: 40px; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-    animation: bounce 2s infinite;
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-</style>
+    /* Subtle noise texture on dark sections */
+    .noise-texture {
+      position: relative;
+    }
+    .noise-texture::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .noise-texture > * { position: relative; z-index: 1; }
+  </style>
 </head>
 <body>
 
-<!-- LIGHTBOX -->
-<div id="lightbox" aria-modal="true" role="dialog">
-  <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
-  <img id="lightbox-img" src="" alt="Réalisation Groupe Unico">
-</div>
-
-<!-- MOBILE NAV OVERLAY -->
-<div id="mobile-menu">
-  <nav class="flex flex-col items-center gap-10">
-    <a href="#accueil" class="font-display text-5xl text-white hover:text-accent transition-colors" onclick="closeMobileMenu()">Accueil</a>
-    <a href="#services" class="font-display text-5xl text-white hover:text-accent transition-colors" onclick="closeMobileMenu()">Services</a>
-    <a href="#realisations" class="font-display text-5xl text-white hover:text-accent transition-colors" onclick="closeMobileMenu()">Réalisations</a>
-    <a href="#apropos" class="font-display text-5xl text-white hover:text-accent transition-colors" onclick="closeMobileMenu()">À Propos</a>
-    <a href="#contact" class="font-display text-5xl text-white hover:text-accent transition-colors" onclick="closeMobileMenu()">Contact</a>
-    <a href="#contact" class="btn-primary mt-6" onclick="closeMobileMenu()">Soumission Gratuite</a>
-  </nav>
-</div>
-
-<!-- NAVBAR -->
-<nav id="navbar">
-  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-    <!-- LOGO -->
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
     <a href="#accueil">
-      <img src="assets/logo.jpg" style="height:52px; width:auto; object-fit:contain;" alt="Groupe Unico Logo">
+      <img src="assets/logo.jpg" alt="Groupe Unico Logo" style="height:52px; width:auto; object-fit:contain;">
     </a>
-    <!-- DESKTOP LINKS -->
-    <div class="hidden lg:flex items-center gap-10">
+
+    <!-- Desktop nav links -->
+    <div class="hidden lg:flex items-center gap-8">
       <a href="#accueil" class="nav-link">Accueil</a>
       <a href="#services" class="nav-link">Services</a>
       <a href="#realisations" class="nav-link">Réalisations</a>
       <a href="#apropos" class="nav-link">À Propos</a>
       <a href="#contact" class="nav-link">Contact</a>
     </div>
-    <!-- CTA + HAMBURGER -->
-    <div class="flex items-center gap-6">
-      <a href="#contact" class="hidden lg:inline-flex btn-primary text-sm" style="padding: 12px 24px;">Soumission Gratuite</a>
-      <button id="hamburger-btn" class="hamburger lg:hidden z-50 relative" aria-label="Menu" onclick="toggleMobileMenu()">
-        <span></span><span></span><span></span>
+
+    <!-- CTA + Hamburger -->
+    <div class="flex items-center gap-4">
+      <a href="#contact" class="btn-red hidden lg:inline-block" style="font-size:0.82rem; padding:11px 22px;">SOUMISSION GRATUITE</a>
+      <button id="hamburger-btn" class="lg:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
     </div>
   </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="flex-col bg-black border-t border-white/10 px-6 py-6 gap-4 lg:hidden">
+    <a href="#accueil" class="nav-link text-base py-2" onclick="closeMobileMenu()">Accueil</a>
+    <a href="#services" class="nav-link text-base py-2" onclick="closeMobileMenu()">Services</a>
+    <a href="#realisations" class="nav-link text-base py-2" onclick="closeMobileMenu()">Réalisations</a>
+    <a href="#apropos" class="nav-link text-base py-2" onclick="closeMobileMenu()">À Propos</a>
+    <a href="#contact" class="nav-link text-base py-2" onclick="closeMobileMenu()">Contact</a>
+    <a href="#contact" class="btn-red text-center mt-2" onclick="closeMobileMenu()">SOUMISSION GRATUITE</a>
+  </div>
 </nav>
 
-<!-- SECTION 1: HERO -->
-<section id="accueil" id="hero" style="position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;">
-  <div id="hero-bg"></div>
-  <div id="hero-texture"></div>
-  <div id="hero-overlay"></div>
-  <!-- Red glow orbs -->
-  <div class="orb" style="width:400px;height:400px;background:rgba(204,20,20,0.18);top:-100px;right:-100px;animation-delay:0s;"></div>
-  <div class="orb" style="width:300px;height:300px;background:rgba(204,20,20,0.12);bottom:100px;left:-50px;animation-delay:2s;"></div>
-  <!-- Hero content -->
-  <div class="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
-    <div class="max-w-4xl">
-      <div class="overline mb-8 reveal" style="color:#CC1414;">Expert en Aménagement Paysager</div>
-      <h1 class="hero-headline reveal delay-1 mb-8" style="line-height:0.92;">
-        PRIX JUSTE,<br>
-        <span class="red-word">EXPÉRIENCE</span><br>
-        UNIQUE.
-      </h1>
-      <p class="reveal delay-2 text-gray-300 text-lg mb-10" style="font-weight:400;letter-spacing:0.05em;max-width:520px;">
-        Pavage · Terrassement · Pavés unis · Aménagement paysager à Québec
-      </p>
-      <div class="reveal delay-3 flex flex-wrap gap-4 mb-10">
-        <a href="#contact" class="btn-primary">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-          Soumission Gratuite
-        </a>
-        <a href="#services" class="btn-outline">Nos Services</a>
-      </div>
-      <div class="reveal delay-4 flex items-center gap-3">
-        <div style="width:40px;height:40px;background:rgba(204,20,20,0.15);border:1px solid rgba(204,20,20,0.4);display:flex;align-items:center;justify-content:center;border-radius:50%;">
-          <svg width="18" height="18" fill="none" stroke="#CC1414" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 10.81a19.79 19.79 0 01-3.07-8.63A2 2 0 011.9 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
-        </div>
-        <a href="tel:4181234567" class="text-white font-semibold text-lg tracking-wide hover:text-red-500 transition-colors" style="font-family:'Inter',sans-serif;">418 XXX-XXXX</a>
-      </div>
-    </div>
+<!-- ===================== HERO ===================== -->
+<section id="accueil" class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden brick-texture" style="background-color:#0a0a0a;">
+  <!-- Background image with overlay -->
+  <div class="absolute inset-0 z-0">
+    <img src="assets/img1.jpg" alt="Aménagement paysager Québec" class="w-full h-full object-cover">
+    <div class="absolute inset-0" style="background: rgba(0,0,0,0.72);"></div>
+    <!-- Subtle red accent line at bottom of hero -->
+    <div class="absolute bottom-0 left-0 right-0 h-1" style="background: #CC1414;"></div>
   </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center pt-24">
+    <p class="overline mb-4 reveal">Expert en aménagement paysager à Québec</p>
+    <h1 class="font-heading text-white mb-6 reveal" style="font-size: clamp(3.2rem, 9vw, 8rem); line-height: 0.95; letter-spacing: 0.02em;">
+      PRIX JUSTE,<br><span style="color:#CC1414;">EXPÉRIENCE UNIQUE.</span>
+    </h1>
+    <p class="text-white/80 mb-10 reveal" style="font-size:clamp(1rem, 2vw, 1.2rem); max-width:600px; margin-left:auto; margin-right:auto; line-height:1.7;">
+      Pavés unis · Asphalte · Terrassement · Aménagement paysager<br>— projet clés en main, soumission 100% gratuite.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mb-10 reveal">
+      <a href="#contact" class="btn-red" style="font-size:1.05rem; padding:16px 36px;">SOUMISSION GRATUITE</a>
+      <a href="#realisations" class="btn-outline" style="font-size:1.05rem; padding:15px 36px;">NOS RÉALISATIONS</a>
+    </div>
+    <a href="tel:4180000000" class="text-white font-semibold text-lg reveal tracking-wider hover:text-red-500 transition-colors" style="letter-spacing:0.08em;">
+      ☎ &nbsp;418 XXX-XXXX
+    </a>
+  </div>
+
   <!-- Scroll indicator -->
-  <div class="scroll-indicator">
-    <span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;">Défiler</span>
-    <svg width="20" height="20" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5"/></svg>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-50">
+    <span class="text-white text-xs tracking-widest uppercase">Défiler</span>
+    <div class="w-px h-8 bg-white/50 animate-pulse"></div>
   </div>
 </section>
 
-<!-- SECTION 2: SERVICES -->
-<section id="services" style="background:#111111;padding:100px 0;">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Header -->
-    <div class="text-center mb-20 reveal">
-      <div class="overline mb-4" style="display:inline-block;padding-left:40px;">Ce que nous offrons</div>
-      <h2 class="font-display text-white mt-6" style="font-size:clamp(52px,7vw,88px);letter-spacing:0.02em;line-height:0.9;">NOS SERVICES</h2>
-      <div class="section-divider center"></div>
-      <p class="text-gray-400 max-w-lg mx-auto text-base leading-relaxed">Des solutions complètes en aménagement extérieur pour résidentiels et commerciaux à travers la région de Québec.</p>
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="noise-texture" style="background:#111111; padding: 96px 24px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="overline mb-3 reveal">Ce que nous offrons</p>
+      <h2 class="font-heading text-white reveal" style="font-size:clamp(2.8rem, 6vw, 5rem); letter-spacing:0.04em;">NOS SERVICES</h2>
+      <div class="w-16 h-1 mx-auto mt-4 reveal" style="background:#CC1414;"></div>
     </div>
-    <!-- Cards Grid -->
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
       <!-- Card 1 -->
-      <div class="service-card reveal delay-1">
-        <div class="service-icon">
-          <svg width="26" height="26" fill="none" stroke="#CC1414" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="7" height="7" rx="1"/><rect x="9" y="3" width="7" height="7" rx="1"/><rect x="2" y="10" width="7" height="7" rx="1"/><rect x="9" y="10" width="7" height="7" rx="1"/></svg>
-        </div>
-        <div style="color:#CC1414;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif;">01</div>
-        <h3 class="font-display text-white mb-4" style="font-size:36px;letter-spacing:0.02em;">PAVAGE</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Pavés unis, asphalte, interblocs pour entrées résidentielles et commerciales. Finition impeccable, durabilité garantie.</p>
-        <div style="width:32px;height:2px;background:#CC1414;margin-top:24px;transition:width 0.3s ease;" class="card-underline"></div>
+      <div class="service-card rounded-sm p-8 reveal">
+        <div class="text-4xl mb-5">🔲</div>
+        <h3 class="font-heading text-white mb-4" style="font-size:1.65rem; letter-spacing:0.05em;">PAVÉS UNIS &amp; ASPHALTE</h3>
+        <p class="text-white/60 leading-relaxed" style="font-size:0.92rem;">Entrées résidentielles, bordures, trottoirs et stationnements. Nous utilisons les meilleurs matériaux du marché — pavés de béton, interblocs et asphalte — pour des surfaces durables et esthétiques qui rehaussent la valeur de votre propriété.</p>
+        <div class="mt-6 w-8 h-0.5" style="background:#CC1414;"></div>
       </div>
+
       <!-- Card 2 -->
-      <div class="service-card reveal delay-2">
-        <div class="service-icon">
-          <svg width="26" height="26" fill="none" stroke="#CC1414" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <div style="color:#CC1414;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif;">02</div>
-        <h3 class="font-display text-white mb-4" style="font-size:36px;letter-spacing:0.02em;">TERRASSEMENT</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Nivellement, excavation, préparation de terrain et drainage. Fondations solides pour des projets sans défaut.</p>
-        <div style="width:32px;height:2px;background:#CC1414;margin-top:24px;transition:width 0.3s ease;" class="card-underline"></div>
+      <div class="service-card rounded-sm p-8 reveal" style="transition-delay:0.1s">
+        <div class="text-4xl mb-5">⛏️</div>
+        <h3 class="font-heading text-white mb-4" style="font-size:1.65rem; letter-spacing:0.05em;">TERRASSEMENT &amp; EXCAVATION</h3>
+        <p class="text-white/60 leading-relaxed" style="font-size:0.92rem;">Nivellement de terrain, excavation, remblayage et installation de systèmes de drainage. Nous préparons votre terrain à la perfection avant chaque projet pour assurer stabilité et longévité.</p>
+        <div class="mt-6 w-8 h-0.5" style="background:#CC1414;"></div>
       </div>
+
       <!-- Card 3 -->
-      <div class="service-card reveal delay-3">
-        <div class="service-icon">
-          <svg width="26" height="26" fill="none" stroke="#CC1414" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 000 20"/><path d="M2 12h20"/><path d="M12 2c-2.5 4-4 8-4 10s1.5 6 4 10"/></svg>
-        </div>
-        <div style="color:#CC1414;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif;">03</div>
-        <h3 class="font-display text-white mb-4" style="font-size:36px;letter-spacing:0.02em;">AMÉNAGEMENT</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Conception et réalisation complète de cours avant et arrière. Transformez votre extérieur en espace de vie unique.</p>
-        <div style="width:32px;height:2px;background:#CC1414;margin-top:24px;transition:width 0.3s ease;" class="card-underline"></div>
+      <div class="service-card rounded-sm p-8 reveal" style="transition-delay:0.2s">
+        <div class="text-4xl mb-5">🌿</div>
+        <h3 class="font-heading text-white mb-4" style="font-size:1.65rem; letter-spacing:0.05em;">AMÉNAGEMENT PAYSAGER</h3>
+        <p class="text-white/60 leading-relaxed" style="font-size:0.92rem;">Conception et réalisation complète de vos espaces extérieurs : murets de soutènement, marches, patios, contours de piscine, gazon et végétaux. Votre cour, réinventée.</p>
+        <div class="mt-6 w-8 h-0.5" style="background:#CC1414;"></div>
       </div>
+
       <!-- Card 4 -->
-      <div class="service-card reveal delay-4">
-        <div class="service-icon">
-          <svg width="26" height="26" fill="none" stroke="#CC1414" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div style="color:#CC1414;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;font-family:'Inter',sans-serif;">04</div>
-        <h3 class="font-display text-white mb-4" style="font-size:36px;letter-spacing:0.02em;">ENTRETIEN</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">Programmes d'entretien saisonnier pour garder votre terrain impeccable en toute saison, année après année.</p>
-        <div style="width:32px;height:2px;background:#CC1414;margin-top:24px;transition:width 0.3s ease;" class="card-underline"></div>
+      <div class="service-card rounded-sm p-8 reveal" style="transition-delay:0.3s">
+        <div class="text-4xl mb-5">❄️</div>
+        <h3 class="font-heading text-white mb-4" style="font-size:1.65rem; letter-spacing:0.05em;">DÉNEIGEMENT &amp; ENTRETIEN</h3>
+        <p class="text-white/60 leading-relaxed" style="font-size:0.92rem;">Contrats saisonniers de déneigement résidentiel et commercial, entretien de pavé et traitement préventif. On s'occupe de votre terrain à l'année.</p>
+        <div class="mt-6 w-8 h-0.5" style="background:#CC1414;"></div>
       </div>
-    </div>
-    <!-- Bottom CTA -->
-    <div class="text-center mt-16 reveal">
-      <a href="#contact" class="btn-primary inline-flex">
-        Obtenir une soumission gratuite
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
     </div>
   </div>
 </section>
 
-<!-- SECTION 3: RÉALISATIONS -->
-<section id="realisations" style="background:#fff;padding:100px 0;">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Header -->
-    <div class="text-center mb-16 reveal">
-      <div class="overline mb-4" style="color:#CC1414;display:inline-block;padding-left:40px;">Notre travail</div>
-      <h2 class="font-display text-black mt-6" style="font-size:clamp(52px,7vw,88px);letter-spacing:0.02em;line-height:0.9;">NOS RÉALISATIONS</h2>
-      <div class="section-divider center"></div>
-      <p class="text-gray-500 max-w-lg mx-auto text-base leading-relaxed">Chaque projet est une signature. Découvrez nos réalisations à travers la région de Québec.</p>
+<!-- ===================== RÉALISATIONS ===================== -->
+<section id="realisations" style="background:#fff; padding: 96px 24px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-6 reveal">
+      <p class="overline mb-3" style="color:#CC1414;">Galerie de projets</p>
+      <h2 class="font-heading" style="color:#000; font-size:clamp(2.8rem, 6vw, 5rem); letter-spacing:0.04em;">NOS RÉALISATIONS</h2>
+      <div class="w-16 h-1 mx-auto mt-4" style="background:#CC1414;"></div>
     </div>
-    <!-- Masonry -->
+    <p class="text-center text-black/60 mb-12 reveal" style="font-size:1.05rem; max-width:600px; margin-left:auto; margin-right:auto; line-height:1.7;">
+      Des projets qui parlent d'eux-mêmes — chaque aménagement est réalisé avec rigueur et passion.
+    </p>
+
     <div class="masonry-grid reveal">
-      <div class="masonry-item" onclick="openLightbox('assets/img1.jpg')">
-        <img src="assets/img1.jpg" alt="Réalisation pavage Québec 1" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:280px;">
+        <img src="assets/img1.jpg" alt="Entrée résidentielle pavés unis">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Entrée résidentielle · Pavés unis</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img2.jpg')">
-        <img src="assets/img2.jpg" alt="Réalisation pavage Québec 2" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:220px;">
+        <img src="assets/img2.jpg" alt="Terrassement complet Québec">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Terrassement complet · Québec</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img3.jpg')">
-        <img src="assets/img3.jpg" alt="Réalisation terrassement Québec" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:340px;">
+        <img src="assets/img3.jpg" alt="Aménagement paysager cour arrière">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Aménagement paysager · Cour arrière</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img4.jpg')">
-        <img src="assets/img4.jpg" alt="Réalisation aménagement paysager" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:300px;">
+        <img src="assets/img4.jpg" alt="Contour de piscine pavés interblocs">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Contour de piscine · Pavés interblocs</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img5.jpg')">
-        <img src="assets/img5.jpg" alt="Réalisation pavés unis Québec" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:240px;">
+        <img src="assets/img5.jpg" alt="Pavés gris Stratus entrée prestige">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Pavés gris Stratus · Entrée prestige</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img6.jpg')">
-        <img src="assets/img6.jpg" alt="Projet paysager résidentiel Québec" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:200px;">
+        <img src="assets/img6.jpg" alt="Pavés Charbon résidentiel moderne">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Pavés Charbon · Résidentiel moderne</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img7.jpg')">
-        <img src="assets/img7.jpg" alt="Entrée de cour pavée Québec" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:260px;">
+        <img src="assets/img7.jpg" alt="Pavés Marble Grey cour avant">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Pavés Marble Grey · Cour avant</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img8.jpg')">
-        <img src="assets/img8.jpg" alt="Réalisation pavage résidentiel" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:320px;">
+        <img src="assets/img8.jpg" alt="Muret de soutènement terrain en pente">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Muret de soutènement · Terrain en pente</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img9.jpg')">
-        <img src="assets/img9.jpg" alt="Cours arrière aménagée Québec" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:220px;">
+        <img src="assets/img9.jpg" alt="Gazon et ensemencement projet complet">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Gazon et ensemencement · Projet complet</span>
         </div>
       </div>
-      <div class="masonry-item" onclick="openLightbox('assets/img10.jpg')">
-        <img src="assets/img10.jpg" alt="Projet terrassement Québec" loading="lazy">
-        <div class="masonry-overlay">
-          <svg width="40" height="40" fill="none" stroke="#fff" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+
+      <div class="masonry-item portfolio-item rounded-sm" style="height:250px;">
+        <img src="assets/img10.jpg" alt="Bordures et marches finition soignée">
+        <div class="portfolio-overlay">
+          <span class="text-white font-semibold" style="font-family:'Bebas Neue',cursive; font-size:1.1rem; letter-spacing:0.06em;">Bordures et marches · Finition soignée</span>
         </div>
       </div>
+
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="#contact" class="btn-red" style="font-size:1.05rem; padding:16px 40px;">OBTENIR UNE SOUMISSION GRATUITE</a>
     </div>
   </div>
 </section>
 
-<!-- SECTION 4: À PROPOS -->
-<section id="apropos" style="background:#0d0d0d;padding:100px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:rgba(204,20,20,0.03);pointer-events:none;"></div>
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <!-- Left: Image -->
-      <div class="reveal-left relative">
-        <div style="position:absolute;top:-16px;left:-16px;width:100%;height:100%;border:2px solid rgba(204,20,20,0.3);border-radius:4px;pointer-events:none;"></div>
-        <img src="assets/img4.jpg" alt="Équipe Groupe Unico à l'oeuvre" style="width:100%;height:520px;object-fit:cover;border-radius:4px;display:block;position:relative;z-index:1;">
-        <!-- Badge -->
-        <div style="position:absolute;bottom:32px;left:-24px;background:#CC1414;padding:20px 28px;z-index:2;">
-          <div class="font-display text-white" style="font-size:48px;line-height:1;">10+</div>
-          <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);font-family:'Inter',sans-serif;">Années<br>d'expérience</div>
-        </div>
-      </div>
-      <!-- Right: Content -->
-      <div class="reveal-right">
-        <div class="overline mb-6" style="color:#CC1414;">À propos de nous</div>
-        <h2 class="font-display text-white mb-6" style="font-size:clamp(40px,5vw,68px);letter-spacing:0.02em;line-height:0.9;">DES PROJETS RÉALISÉS<br><span style="color:#CC1414;">AVEC PASSION</span></h2>
-        <div class="section-divider"></div>
-        <p class="text-gray-400 text-base leading-relaxed mb-6">
-          Groupe Unico est une entreprise spécialisée en aménagement paysager et en pavage dans la région de Québec. Notre équipe de professionnels passionnés s'engage à livrer des projets de qualité supérieure, dans les délais convenus et au prix annoncé.
-        </p>
-        <p class="text-gray-400 text-base leading-relaxed mb-10">
-          <strong class="text-white">Aucune surprise — seulement des résultats.</strong> Chaque projet est traité avec le même niveau d'exigence, qu'il s'agisse d'une entrée de cour résidentielle ou d'un grand aménagement commercial.
-        </p>
-        <!-- Stats -->
-        <div class="grid grid-cols-3 gap-4">
-          <div class="stat-box">
-            <div class="font-display text-white counter" style="font-size:44px;line-height:1;" data-target="10">0</div>
-            <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#CC1414;margin-top:6px;font-family:'Inter',sans-serif;">Années</div>
-          </div>
-          <div class="stat-box">
-            <div class="font-display text-white counter" style="font-size:44px;line-height:1;" data-target="300">0</div>
-            <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#CC1414;margin-top:6px;font-family:'Inter',sans-serif;">Projets</div>
-          </div>
-          <div class="stat-box">
-            <div class="font-display text-white" style="font-size:44px;line-height:1;">100%</div>
-            <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#CC1414;margin-top:6px;font-family:'Inter',sans-serif;">Satisfaction</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ===================== À PROPOS ===================== -->
+<section id="apropos" class="noise-texture" style="background:#111111; padding: 96px 24px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-<!-- SECTION 5: TÉMOIGNAGES -->
-<section id="temoignages" style="background:#f5f5f5;padding:100px 0;">
-  <div class="max-w-7xl mx-auto px-6">
-    <!-- Header -->
-    <div class="text-center mb-16 reveal">
-      <div class="overline mb-4" style="color:#CC1414;display:inline-block;padding-left:40px;">Ce qu'ils disent</div>
-      <h2 class="font-display text-black mt-6" style="font-size:clamp(52px,7vw,88px);letter-spacing:0.02em;line-height:0.9;">TÉMOIGNAGES</h2>
-      <div class="section-divider center"></div>
-    </div>
-    <!-- Testimonial Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="testimonial-card reveal delay-1">
-        <!-- Stars -->
-        <div class="flex gap-1 mb-6">
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <div style="font-size:40px;color:#CC1414;font-family:Georgia,serif;line-height:0.8;margin-bottom:12px;">"</div>
-        <p class="text-gray-700 text-base leading-relaxed mb-8">Groupe Unico a complètement transformé notre entrée de cour. Travail impeccable, équipe professionnelle et prix exactement comme promis. Je les recommande sans hésitation à tous mes voisins.</p>
-        <div class="flex items-center gap-4">
-          <div style="width:44px;height:44px;background:#CC1414;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <span class="font-display text-white" style="font-size:20px;">M</span>
-          </div>
-          <div>
-            <div style="font-weight:700;font-size:15px;color:#000;font-family:'Inter',sans-serif;">Martin Bélanger</div>
-            <div style="font-size:12px;color:#888;font-family:'Inter',sans-serif;letter-spacing:0.05em;">Propriétaire résidentiel, Québec</div>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="testimonial-card reveal delay-2">
-        <div class="flex gap-1 mb-6">
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <div style="font-size:40px;color:#CC1414;font-family:Georgia,serif;line-height:0.8;margin-bottom:12px;">"</div>
-        <p class="text-gray-700 text-base leading-relaxed mb-8">Nous avons fait appel à Groupe Unico pour l'aménagement complet de notre cour arrière. Résultat époustouflant. L'équipe était ponctuelle, soignée et le rendu final dépasse nos attentes. Vraiment prix juste!</p>
-        <div class="flex items-center gap-4">
-          <div style="width:44px;height:44px;background:#CC1414;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <span class="font-display text-white" style="font-size:20px;">S</span>
-          </div>
-          <div>
-            <div style="font-weight:700;font-size:15px;color:#000;font-family:'Inter',sans-serif;">Sophie Tremblay</div>
-            <div style="font-size:12px;color:#888;font-family:'Inter',sans-serif;letter-spacing:0.05em;">Cliente résidentielle, Sainte-Foy</div>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="testimonial-card reveal delay-3">
-        <div class="flex gap-1 mb-6">
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          <svg width="18" height="18" fill="#CC1414" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        </div>
-        <div style="font-size:40px;color:#CC1414;font-family:Georgia,serif;line-height:0.8;margin-bottom:12px;">"</div>
-        <p class="text-gray-700 text-base leading-relaxed mb-8">Excellent service du début à la fin. Ils ont refait toute notre stationnement commercial avec des pavés unis. Délais respectés à la lettre et qualité de premier ordre. On refera affaire avec eux sans hésiter.</p>
-        <div class="flex items-center gap-4">
-          <div style="width:44px;height:44px;background:#CC1414;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <span class="font-display text-white" style="font-size:20px;">L</span>
-          </div>
-          <div>
-            <div style="font-weight:700;font-size:15px;color:#000;font-family:'Inter',sans-serif;">Luc Gagnon</div>
-            <div style="font-size:12px;color:#888;font-family:'Inter',sans-serif;letter-spacing:0.05em;">Propriétaire commercial, Lévis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 6: CONTACT -->
-<section id="contact" style="background:#000;padding:100px 0;position:relative;overflow:hidden;">
-  <!-- BG accents -->
-  <div style="position:absolute;top:0;left:0;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(204,20,20,0.5),transparent);"></div>
-  <div style="position:absolute;top:0;right:0;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(204,20,20,0.5),transparent);"></div>
-
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      <!-- Left: Info -->
+      <!-- Left: image -->
       <div class="reveal-left">
-        <div class="overline mb-6" style="color:#CC1414;">Parlons de votre projet</div>
-        <h2 class="font-display text-white mb-6" style="font-size:clamp(52px,7vw,88px);letter-spacing:0.02em;line-height:0.9;">CONTACTEZ-<br><span style="color:#CC1414;">NOUS</span></h2>
-        <div class="section-divider"></div>
-        <p class="text-gray-400 text-base leading-relaxed mb-12 max-w-md">
-          Prêt à transformer votre espace extérieur? Contactez-nous pour une soumission gratuite et sans engagement. On vous répond rapidement.
+        <div style="position:relative; overflow:hidden; border-radius:2px;">
+          <img src="assets/img3.jpg" alt="Équipe Groupe Unico" class="w-full object-cover" style="height:520px; display:block;">
+          <div class="absolute inset-0" style="border: 3px solid #CC1414; pointer-events:none; margin:12px;"></div>
+          <!-- Red accent corner -->
+          <div class="absolute top-0 left-0 w-16 h-1" style="background:#CC1414;"></div>
+          <div class="absolute top-0 left-0 w-1 h-16" style="background:#CC1414;"></div>
+        </div>
+      </div>
+
+      <!-- Right: content -->
+      <div class="reveal-right">
+        <p class="overline mb-4">Qui sommes-nous</p>
+        <h2 class="font-heading text-white mb-6" style="font-size:clamp(2.2rem, 4.5vw, 3.8rem); line-height:1; letter-spacing:0.04em;">
+          UNE ÉQUIPE PASSIONNÉE,<br><span style="color:#CC1414;">DES RÉSULTATS QUI DURENT.</span>
+        </h2>
+        <p class="text-white/70 leading-relaxed mb-8" style="font-size:1rem;">
+          Fondé par des entrepreneurs de la région de Québec, Groupe Unico s'est bâti sur une promesse simple : livrer des travaux d'aménagement extérieur de qualité supérieure, au prix annoncé, dans les délais convenus. Notre équipe de spécialistes combine savoir-faire traditionnel et équipements modernes pour transformer vos espaces extérieurs en environnements que vous aimerez pour les années à venir. Chez Unico, chaque projet est unique — et chaque client mérite une expérience irréprochable.
         </p>
-        <!-- Contact items -->
-        <div class="flex flex-col gap-6">
-          <a href="tel:4181234567" class="flex items-center gap-5 group">
-            <div style="width:52px;height:52px;background:rgba(204,20,20,0.1);border:1px solid rgba(204,20,20,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s ease;" class="group-hover:bg-accent group-hover:border-accent">
-              <svg width="20" height="20" fill="none" stroke="#CC1414" stroke-width="1.5" viewBox="0 0 24 24" class="group-hover:stroke-white transition-colors"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013 10.81a19.79 19.79 0 01-3.07-8.63A2 2 0 011.9 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6">
+          <div class="stat-box">
+            <p class="font-heading text-white" style="font-size:2.8rem; line-height:1; color:#CC1414;">10+</p>
+            <p class="text-white/60 mt-1" style="font-size:0.82rem; line-height:1.4;">Années d'expérience</p>
+          </div>
+          <div class="stat-box">
+            <p class="font-heading text-white" style="font-size:2.8rem; line-height:1; color:#CC1414;">500+</p>
+            <p class="text-white/60 mt-1" style="font-size:0.82rem; line-height:1.4;">Projets réalisés</p>
+          </div>
+          <div class="stat-box">
+            <p class="font-heading text-white" style="font-size:2.8rem; line-height:1; color:#CC1414;">100%</p>
+            <p class="text-white/60 mt-1" style="font-size:0.82rem; line-height:1.4;">Satisfaction garantie</p>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <a href="#contact" class="btn-red" style="font-size:1rem; padding:15px 32px;">DEMANDER UNE SOUMISSION</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TÉMOIGNAGES ===================== -->
+<section style="background:#f4f4f4; padding: 96px 24px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <p class="overline mb-3 reveal">Avis clients</p>
+      <h2 class="font-heading reveal" style="color:#000; font-size:clamp(2.4rem, 5vw, 4.5rem); letter-spacing:0.04em;">CE QUE NOS CLIENTS DISENT</h2>
+      <div class="w-16 h-1 mx-auto mt-4 reveal" style="background:#CC1414;"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Testimonial 1 -->
+      <div class="testi-card rounded-sm p-8 reveal">
+        <div class="flex gap-1 mb-4">
+          <span style="color:#CC1414; font-size:1.2rem;">★★★★★</span>
+        </div>
+        <p class="text-black/75 leading-relaxed mb-6" style="font-size:0.95rem; font-style:italic;">
+          "Nous avons fait appel à Groupe Unico pour notre entrée en pavés unis et le résultat dépasse toutes nos attentes. Équipe ponctuelle, professionnelle et vraiment à l'écoute. Le prix était exactement celui de la soumission — aucune mauvaise surprise. On recommande à 100%!"
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-black/10">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#CC1414;">JM</div>
+          <div>
+            <p class="font-semibold text-black text-sm">Jean-Philippe M.</p>
+            <p class="text-black/50 text-xs">Québec</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testi-card rounded-sm p-8 reveal" style="transition-delay:0.1s">
+        <div class="flex gap-1 mb-4">
+          <span style="color:#CC1414; font-size:1.2rem;">★★★★★</span>
+        </div>
+        <p class="text-black/75 leading-relaxed mb-6" style="font-size:0.95rem; font-style:italic;">
+          "Projet de terrassement et de pavage réalisé en 3 jours. L'équipe est arrivée tôt chaque matin et a travaillé avec soin. Mon terrain a été complètement transformé. C'est propre, durable et ça look vraiment bien. Merci Unico!"
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-black/10">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#CC1414;">IC</div>
+          <div>
+            <p class="font-semibold text-black text-sm">Isabelle C.</p>
+            <p class="text-black/50 text-xs">Lévis</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testi-card rounded-sm p-8 reveal" style="transition-delay:0.2s">
+        <div class="flex gap-1 mb-4">
+          <span style="color:#CC1414; font-size:1.2rem;">★★★★★</span>
+        </div>
+        <p class="text-black/75 leading-relaxed mb-6" style="font-size:0.95rem; font-style:italic;">
+          "J'ai demandé plusieurs soumissions et c'est Unico qui m'a offert le meilleur rapport qualité-prix. Les travaux ont été faits rapidement et avec grand soin. Mon contour de piscine en pavés est parfait. Je les recommande sans hésiter!"
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-black/10">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#CC1414;">PD</div>
+          <div>
+            <p class="font-semibold text-black text-sm">Patrick D.</p>
+            <p class="text-black/50 text-xs">Sainte-Foy</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact" style="background:#000000; padding: 96px 24px;">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: info -->
+      <div class="reveal-left">
+        <p class="overline mb-4">Parlons de votre projet</p>
+        <h2 class="font-heading text-white mb-8" style="font-size:clamp(2.8rem, 6vw, 5rem); line-height:1; letter-spacing:0.04em;">
+          CONTACTEZ-<br><span style="color:#CC1414;">NOUS.</span>
+        </h2>
+
+        <div class="space-y-6 mb-10">
+          <a href="tel:4180000000" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0" style="background:#CC1414;">
+              <span class="text-white text-lg">☎</span>
             </div>
             <div>
-              <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#CC1414;font-family:'Inter',sans-serif;margin-bottom:4px;">Téléphone</div>
-              <div class="text-white font-semibold text-lg group-hover:text-accent transition-colors" style="font-family:'Inter',sans-serif;">418 XXX-XXXX</div>
+              <p class="text-white/50 text-xs uppercase tracking-widest mb-0.5">Téléphone</p>
+              <p class="text-white font-semibold text-xl group-hover:text-red-500 transition-colors" style="letter-spacing:0.04em;">418 XXX-XXXX</p>
             </div>
           </a>
-          <a href="mailto:info@groupeunico.ca" class="flex items-center gap-5 group">
-            <div style="width:52px;height:52px;background:rgba(204,20,20,0.1);border:1px solid rgba(204,20,20,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s ease;" class="group-hover:bg-accent group-hover:border-accent">
-              <svg width="20" height="20" fill="none" stroke="#CC1414" stroke-width="1.5" viewBox="0 0 24 24" class="group-hover:stroke-white transition-colors"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+
+          <a href="mailto:info@groupeunico.ca" class="flex items-center gap-4 group">
+            <div class="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0" style="background:#CC1414;">
+              <span class="text-white text-lg">✉</span>
             </div>
             <div>
-              <div style="font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#CC1414;font-family:'Inter',sans-serif;margin-bottom:4px;">Courriel</div>
-              <div class="text-white font-semibold text-lg group-hover:text-accent transition-colors" style="font-family:'Inter',sans-serif;">info@groupeunico.ca</div>
+              <p class="text-white/50 text-xs uppercase tracking-widest mb-0.5">Courriel</p>
+              <p class="text-white font-semibold group-hover:text-red-500 transition-colors">info@groupeunico.ca</p>
             </div>
           </a>
-          <div class="flex items-center gap
+
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-sm flex-shrink-0" style="background:#CC1414;">
+              <span class="text-white text-lg">📍</span>
+            </div>
+            <div>
+              <p class="text-white/50 text-xs uppercase tracking-widest mb-0.5">Secteur desservi</p>
+              <p class="text-white font-semibold">Québec, QC</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-sm" style="background:#1a1a1a; border-left:3px solid #CC1414;">
+          <p class="text-white font-semibold mb-1">⏰ Disponibilité</p>
+          <p class="text-white/60 text-sm leading-relaxed">Lundi au vendredi, 7h à 18h.<br>Soumission gratuite sous 24h.</p>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal-right">
+        <div class="p-8 rounded-sm" style="background:#111111; border:1px solid rgba(255,255,255,0.08);">
+          <h3 class="font-heading text-white mb-6" style="font-size:1.8rem; letter-spacing:0.05em;">SOUMISSION GRATUITE</h3>
+          <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-4">
+            <div>
+              <label class="text-white/60 text-xs uppercase tracking-wider block mb-2">Nom complet *</label>
+              <input type="text" class="form-input" placeholder="Jean Tremblay" required>
+            </div>
+            <div>
+              <label class="text-white/60 text-xs uppercase tracking-wider block mb-2">Numéro de téléphone *</label>
+              <input type="tel" class="form-input" placeholder="418 000-0000" required>
+            </div>
+            <div>
+              <label class="text-white/60 text-xs uppercase tracking-wider block mb-2">Adresse courriel *</label>
+              <input type="email" class="form-input" placeholder="votre@email.com" required>
+            </div>
+            <div>
+              <label class="text-white/60 text-xs uppercase tracking-wider block mb-2">Description du projet *</label>
+              <textarea class="form-input" rows="4" placeholder="Décrivez votre projet (type de travaux, superficie approximative, délais souhaités...)" required style="resize:vertical; min-height:110px;"></textarea>
+            </div>
+            <button type="submit" class="btn-red w-full text-center mt-2" style="font-size:1rem; padding:16px 24px; width:100%; border-radius:3px;">
+              OBTENIR MA SOUMISSION GRATUITE
+            </button>
+            <p class="text-white/35 text-xs text-center">En soumettant ce formulaire, vous acceptez d'être contacté par Groupe Unico.</p>
+          </form>
+          <div id="form-success" class="hidden text-center py-8">
+            <div class="text-5xl mb-4">✅</div>
+            <h4 class="font-heading text-white text-2xl mb-2">MESSAGE ENVOYÉ!</h4>
+            <p class="text-white/60">Nous vous contacterons dans les 24h. Merci!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#111111; padding-top:48px;">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pb-8">
+
+      <!-- Left: Logo -->
+      <div class="flex justify-center md:justify-start">
+        <img src="assets/logo.jpg" alt="Groupe Unico" style="height:44px; width:auto; object-fit:contain;">
+      </div>
+
+      <!-- Center: Nav links -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#accueil" class="footer-link">Accueil</a>
+        <span class="text-white/20">|</span>
+        <a href="#services" class="footer-link">Services</a>
+        <span class="text-white/20">|</span>
+        <a href="#realisations" class="footer-link">Réalisations</a>
+        <span class="text-white/20">|</span>
+        <a href="#apropos" class="footer-link">À Propos</a>
+        <span class="text-white/20">|</span>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+
+      <!-- Right: Contact -->
+      <div class="flex flex-col items-center md:items-end gap-1">
+        <a href="tel:4180000000" class="text-white/70 hover:text-white text-sm transition-colors">418 XXX-XXXX</a>
+        <a href="mailto:info@groupeunico.ca" class="text-white/70 hover:text-white text-sm transition-colors">info@groupeunico.ca</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 py-6 flex flex-col md:flex-row justify-between items-center gap-3">
+      <p class="text-white/40 text-xs text-center">© 2025 Groupe Unico. Tous droits réservés.</p>
+      <p class="text-white/25 text-xs">Expert en aménagement paysager — Pavés unis &amp; Asphalte — Québec, QC</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Hamburger menu
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+  // Stagger children
+  document.querySelectorAll('.grid .reveal').forEach((el, index) => {
+    const parentGrid = el.closest('.grid');
+    if (parentGrid) {
+      const siblings = parentGrid.querySelectorAll('.reveal');
+      siblings.forEach((sib, i) => {
+        if (!sib.style.transitionDelay) {
+          sib.style.transitionDelay = (i * 0.1) + 's';
+        }
+      });
+    }
+  });
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    form.style.opacity = '0';
+    form.style.transition = 'opacity 0.4s ease';
+    setTimeout(() => {
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.style.opacity = '0';
+      success.style.transition = 'opacity 0.4s ease';
+      setTimeout(() => { success.style.opacity = '1'; }, 50);
+    }, 400);
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const navHeight = navbar.offsetHeight;
+        const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
